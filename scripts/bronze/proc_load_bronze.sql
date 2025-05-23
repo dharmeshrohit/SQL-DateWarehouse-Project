@@ -7,6 +7,7 @@ Script Purpose:
     It performs the following actions:
     - Truncates the bronze tables before loading data.
     - Uses the 'COPY FROM' command to load data from csv Files to bronze tables.
+
 ===============================================================================
 */
 
