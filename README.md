@@ -1,7 +1,7 @@
 # Data Warehouse and Analytics Project
 
 Welcome to the **Data Warehouse and Analytics Project** repository!   
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. It highlights industry best practices in data engineering and analytics.
 
 ---
 ##  Data Architecture
@@ -23,6 +23,8 @@ This project involves:
 3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
 4. **Analytics & Reporting**: Creating SQL-based reports and dashboards for actionable insights.
 
+---
+## Important Documents **[Projects Modeling Docs](docs/):**
 ---
 # Data Catalog for Gold Layer
 
@@ -85,3 +87,6 @@ The Gold Layer is the business-level data representation, structured to support 
 | sales_amount    | INT           | The total monetary value of the sale for the line item, in whole currency units (e.g., 25).   |
 | quantity        | INT           | The number of units of the product ordered for the line item (e.g., 1).                       |
 | price           | INT           | The price per unit of the product for the line item, in whole currency units (e.g., 25).      |
+
+---
+[Dharmesh Rohit](https://github.com/dharmeshrohit)
