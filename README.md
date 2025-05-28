@@ -24,7 +24,7 @@ This project involves:
 4. **Analytics & Reporting**: Creating SQL-based reports and dashboards for actionable insights.
 
 ---
-## Important Documents **[Projects Modeling Docs](docs/):**
+## Important Documents: **[Projects Modeling Docs](docs/)**
 ---
 # Data Catalog for Gold Layer
 
