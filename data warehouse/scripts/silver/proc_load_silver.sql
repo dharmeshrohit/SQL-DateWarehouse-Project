@@ -46,21 +46,20 @@ select *,
        ) as flag_last
 from bronze.crm_cust_info
 where cst_id is not null
-) where flag_last = 1
+) where flag_last = 1;
 
 
 -- Loading silver.crm_prd_info
 truncate table silver.crm_prd_info;
 insert into silver.crm_prd_info(
-prd_id,
-cat_id,
-prd_key,
-prd_nm,
-prd_cost,
-prd_line,
-prd_start_dt,
-prd_end_dt
-)
+	prd_id,
+	cat_id,
+	prd_key,
+	prd_nm,
+	prd_cost,
+	prd_line,
+	prd_start_dt,
+	prd_end_dt)
 
 select
 prd_id,
@@ -80,7 +79,7 @@ cast (lead(prd_start_dt) over (
         partition by prd_key
         order by prd_start_dt
     ) - interval '1 day' as date) as prd_end_dt -- Calculate end date as one day before the next start date
-from bronze.crm_prd_info
+from bronze.crm_prd_info;
 
 
     -- Loading crm_sales_details
@@ -122,7 +121,7 @@ case when sls_price is null or sls_price <=0
 		then sls_sales / nullif(sls_quantity, 0)
 	 else sls_price
 end as sls_price
-from bronze.crm_sales_details
+from bronze.crm_sales_details;
 
 
    -- Loading erp_cust_az12
@@ -140,7 +139,7 @@ case when upper(trim(gen)) in ('F', 'FEMALE') then 'Female'
 	 when upper(trim(gen)) in ('M', 'MALE') then 'Male'
 	 else 'n/a'
 end as gen -- Normalize gender values and handle unkown cases
-from bronze.erp_cust_az12
+from bronze.erp_cust_az12;
 
 
     -- Loading erp_loc_a101
@@ -153,11 +152,12 @@ cntry
 select
 replace(cid, '-', '') cid,
 case when trim(cntry) = 'DE' then 'Germany'
-	 when trim(cntry) in ('US', 'USA') then 'n/a'
-	 when trim(cntry) = '' or cntry is null then 'n/a'
+	 when trim(cntry) in ('US', 'USA') then 'United States'
+	 when trim(cntry) = cntry is null then 'n/a'
+	 when trim(cntry) = '' then 'n/a'
 	 else trim(cntry)
 end as cntry
-from bronze.erp_loc_a101
+from bronze.erp_loc_a101;
 
 
     -- Loading erp_px_cat_g1v2
@@ -175,5 +175,3 @@ cat,
 subcat,
 maintenance
 from bronze.erp_px_cat_g1v2
-
-
